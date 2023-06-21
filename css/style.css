@@ -41,13 +41,40 @@ section{
   padding: 5rem 7%;
 }
 
+
+/* Top Banner  */
+
+.top-banner {
+  width: 100vw;
+  padding: .6rem 0;
+  background-color: #3f1583;
+}
+
+.top-banner ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-banner ul li{
+  font-size: 1.5rem;
+  padding-left: .5rem;
+  color: white;
+  text-transform: lowercase;
+}
+
+/* Top Banner Ends  */
+
 /*------------- Navigation style start ------------*/
-nav
-{
-	position: fixed;
+nav{
+	/* position: fixed; */
 	width: 100%;
 	background-color: #fff;
 	display: flex;
+  flex-direction: column;
+  gap: 18px;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1vw 8vw;
@@ -57,10 +84,37 @@ nav
 
 nav .logo
 {
-	width: 150px;
+	width: 130px;
+  height: 130px;
 	cursor: pointer;
 }
 
+.logo-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+nav .header-name{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.school-name{
+  font-size: 2.6rem;
+  color: #12c2b9;
+  font-weight: bold;
+}
+
+.school-address , .school-trust-name{
+  font-size: 1.6rem;
+  color: #48cfc9;
+  font-weight: bold;
+  margin-top: 8px;
+}
 nav .navigation
 {
 	display: flex;
@@ -201,6 +255,8 @@ nav .navigation ul li a:hover
 }
 
 /* header */
+
+
 
 .header{
   position: fixed;
@@ -394,13 +450,32 @@ nav .navigation ul li a:hover
 
 /* subjects */
 
-.subjects .box-container{
+.slider {
+  width: 90vw;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container {
+  /* animation: slide 10s none; */
+  width: inherit;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(3, minmax(25rem, 1fr));
   gap: 2rem;
 }
 
-.subjects .box-container .box{
+/* 
+.slider-container{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+} */
+
+.slider-box {
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  box-sizing: border-box;
   padding: 3rem 2rem;
   text-align: center;
   border: .1rem solid var(--primary-color);
@@ -408,35 +483,47 @@ nav .navigation ul li a:hover
   cursor: pointer;
 }
 
-.subjects .box-container .box:hover{
+.slider-box:hover{
   background: var(--primary-color);
 }
 
-.subjects .box-container .box img{
+.slider-box img{
   height: 10rem;
   margin-bottom: .7rem;
 }
 
-.subjects .box-container .box h3{
+.slider-box h3{
   font-size: 1.7rem;
   color: #444;
   padding: .5rem 0;
   text-transform: capitalize;
 }
 
-.subjects .box-container .box:hover h3{
+.slider-box:hover h3{
   color: #fff;
 }
 
-.subjects .box-container .box p{
-  font-size: 1.5rem;
-  line-height: 2;
-  color: #777;
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.subjects .box-container .box:hover p{
-  color: #eee;
+.prev-btn{
+  left: -2px;
+  display: none;
 }
+
+.next-btn {
+  right: 10px;
+}
+
 
 /* end */
 
@@ -820,6 +907,7 @@ nav .navigation ul li a:hover
   text-align: center;
 }
 
+
 .footer .box-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -830,6 +918,17 @@ nav .navigation ul li a:hover
   font-size: 2.2rem;
   color: var(--primary-color);
   padding: 1rem 0;
+}
+
+.footer .box-container .box .location-text{
+  font-size: 1.5rem;
+  color: var(--black);
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box .location-text:hover{
+  text-decoration: underline;
 }
 
 .footer .box-container .box p{
@@ -874,7 +973,7 @@ nav .navigation ul li a:hover
 }
 
 .footer .credit{
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 3rem;
   padding-top: 3rem;
   text-align: center;
@@ -912,13 +1011,25 @@ nav .navigation ul li a:hover
     display: inline-block;
   }
 
-  .header .navbar{
+  nav{
     position: absolute;
-    top: 110%; right: -110%;
-    width: 30rem;
-    box-shadow: var(--box-shadow);
-    border-radius: .5rem;
+    flex-direction: row;
     background: var(--white);
+  }
+
+  nav .logo {
+    width: 90px;
+    height: 80px;
+  }
+
+  .school-name {
+    font-size: 1.6rem;
+  }
+  .school-address {
+    font-size: 1.3rem;
+  }
+  .school-trust-name {
+    font-size: 1.3rem;
   }
 
   .header .navbar.active{
@@ -946,6 +1057,11 @@ nav .navigation ul li a:hover
   html{
     font-size: 50%;
   }
+
+  .logo{
+    width: 70px;
+    height: 60px;
+  }
 }
 
 @media screen and (max-width: 789px)
@@ -953,13 +1069,25 @@ nav .navigation ul li a:hover
 	nav
 	{
 		padding: 15px 20px;
-    z-index: 999;
+    flex-direction: row;
 	}
 
-	nav img
-	{
-		width: 130px;
-	}
+  nav .logo {
+    width: 90px;
+    height: 80px;
+  }
+
+  .school-name {
+    font-size: 1.9rem;
+  }
+  .school-address {
+    margin-top: 8px;
+    font-size: 1.5rem;
+  }
+  .school-trust-name {
+    font-size: 1.5rem;
+  }
+
 
 	nav .navigation ul
 	{
